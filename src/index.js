@@ -28,19 +28,15 @@ class Board extends React.Component {
         let squares = [];
 
         for (let i = 0; i < 9; i++) {
-            squares.push(this.renderSquare(i));
+            squares = squares.concat(this.renderSquare(i));
 
             if (squares.length % 3 === 0) {
-                rows.push(<div className="board-row">{squares}</div>);
+                rows = rows.concat(<div className="board-row">{squares}</div>);
                 squares = [];
             }
         }
 
-        return (
-            <div>
-                {rows}
-            </div>
-        );
+        return <div>{rows}</div>;
     }
 }
 
